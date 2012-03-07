@@ -97,11 +97,11 @@ The parameters for creating guiders are:
 Support
 -----------
 **Required**
-jQuery (developed on 1.7.1)
-Browsers Chrome 1+, Firefox 3.5+, Internet Explorer 7+, Opera (untested), Safari 5.1+
+* jQuery (developed on 1.7.1)
+* Browsers Chrome 1+, Firefox 3.5+, Internet Explorer 7+, Opera (untested), Safari 5.1+
 
 **Optional**
-jQuery UI Draggable (developed on 1.8.18)
+* jQuery UI Draggable (developed on 1.8.18)
 
 
 Integration
