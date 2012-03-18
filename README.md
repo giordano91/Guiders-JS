@@ -14,7 +14,7 @@ You can also check out `README.htm` for guiders in action!
 Setup
 --------
 
-Here is sample code for initializing a couple of guiders. Guiders are hidden when created, unless `.show()` is method chained immediately after `$.guider`.
+Here is sample code for initializing a couple of guiders. Guiders are hidden when created, unless `.show()` is method chained immediately after `$.guider`. Also note that `$("#hoawrd").guider` is a guider attachment. Because this call return a jQuery selection, chaining show here will invoke the jQuery show method.
 
 ~~~ javascript
 $.guider({
@@ -46,7 +46,7 @@ $("#howard").guider({
 		}
 	}
 });
-~~~~
+~~~
 
 The parameters for creating guiders are:
 
@@ -107,10 +107,12 @@ The parameters for creating guiders are:
 Support
 -----------
 **Required**
+
 * jQuery (developed on 1.7.1)
 * Browsers Chrome 1+, Firefox 3.5+, Internet Explorer 7+, Opera (untested), Safari 5.1+
 
 **Optional**
+
 * jQuery UI Draggable (developed on 1.8.18)
 
 
@@ -120,9 +122,9 @@ Integration
 Besides creating guiders, here is sample code you can use in your application to work with guiders:
 
 ~~~ javascript
+$.guider.show(name); // shows the guider, given the name used at creation
 $.guider.hideAll(); // hides all guiders
 $.guider.next(); // hides the last shown guider, if shown, and advances to the next guider
-$.guider.show(name); // shows the guider, given the name used at creation
 ~~~
 
 You'll likely want to change the default values, such as the width (set to 530px). These can be found at the top of `guider.js`. You'll also want to modify the css file to match your application's branding.
