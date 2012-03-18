@@ -14,44 +14,54 @@
  * Setting:
  *	{
  *		[name: <string>]?
- * 		[next: <string>]?
- * 		[className: <string>]?
- * 		[title: <string>]?
- * 		[description: <string>]?
- * 		[width: <number> | <string>]?
- * 		[overlay: <boolean> | "light" | "dark" |
- * 			{
- * 				[color: <string>]?
- * 				[opacity: <number> | <string>]?
- * 			}
- * 		]?
- * 		[position: "rightTop" | "right" | "rightBottom" | "bottomRight" | "bottom" | "bottomLeft" | "leftBottom" | "left" | "leftTop" | "topLeft" | "top" | "topRight"]?
- * 		[offset:
- * 			{
- * 				[top: <number>]?
- * 				[left: <number>]?
- * 			}
- * 		]?
- * 		[arrowSize: <number>]?
- * 		[closable: <boolean>]?
- * 		[draggable: <boolean>]?
- * 		[highlight: <boolean>]?
- * 		[hashable: <boolean>]?
- * 		[alignButtons: "left" | "center" | "right"]?
- * 		[buttons: [
- * 			{
- * 				[[ Close | Next | Back | <string> ]: [ <boolean> | <function> |
- * 					{
- * 						[className: <string>]?
- * 						[click: <boolean> | <function>]?
- * 						[disabled: <boolean>]?
- * 					}
- * 				]]?*
- * 			}
- * 		]]?
- * 		[onShow: <function>]?
- * 		[onHide: <function>]?
- * 	}
+ *		[next: <string>]?
+ *		[className: <string>]?
+ *		[title: <string>]?
+ *		[description: <string>]?
+ *		[width: <number> | <string>]?
+ *		[overlay: <boolean> | "light" | "dark" |
+ *			{
+ *				[color: <string>]?
+ *				[opacity: <number> | <string>]?
+ *			}
+ *		]?
+ *		[position: "rightTop" | "right" | "rightBottom" | "bottomRight" | "bottom" | "bottomLeft" | "leftBottom" | "left" | "leftTop" | "topLeft" | "top" | "topRight"]?
+ *		[offset:
+ *			{
+ *				[top: <number>]?
+ *				[left: <number>]?
+ *			}
+ *		]?
+ *		[arrowSize: <number>]?
+ *		[closable: <boolean>]?
+ *		[draggable: <boolean>]?
+ *		[highlight: <boolean>]?
+ *		[hashable: <boolean>]?
+ *		[alignButtons: "left" | "center" | "right"]?
+ *		[buttons: [
+ *			{
+ *				[
+ *					[ Close | Next | Back ]: [ <boolean> | <function> |
+ *						{
+ *							[className: <string>]?
+ *							[click: <boolean> | <function>]?
+ *							[disabled: <boolean>]?
+ *						}
+ *					]
+ *				|
+ *					<string> : [ <function> |
+ *						{
+ *							[className: <string>]?
+ *							[click: <boolean> | <function>]?
+ *							[disabled: <boolean>]?
+ *						}
+ *					]
+ *				]*
+ *			}
+ *		]]?
+ *		[onShow: <function>]?
+ *		[onHide: <function>]?
+ *	}
  */
 (function($){
 //--

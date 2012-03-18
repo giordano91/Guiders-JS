@@ -79,13 +79,23 @@ The parameters for creating guiders are:
 	[alignButtons: "left" | "center" | "right"]?
 	[buttons: [
 		{
-			[[ Close | Next | Back | <string> ]: [ <boolean> | <function> |
-				{
-					[className: <string>]?
-					[click: <boolean> | <function>]?
-					[disabled: <boolean>]?
-				}
-			]]?*
+			[
+				[ Close | Next | Back ]: [ <boolean> | <function> |
+					{
+						[className: <string>]?
+						[click: <boolean> | <function>]?
+						[disabled: <boolean>]?
+					}
+				]
+			|
+				<string> : [ <function> |
+					{
+						[className: <string>]?
+						[click: <boolean> | <function>]?
+						[disabled: <boolean>]?
+					}
+				]
+			]*
 		}
 	]]?
 	[onShow: <function>]?
