@@ -1,11 +1,11 @@
 ﻿/*!
- * jQuery Plugin: Guider v2.0.0
+ * jQuery Plugin: Guider v2.0.1
  * http://www.roydukkey.com/
  *
  * Copyright 2012 roydukkey, Attribution to Optimizely (optimizely.com).
  * Dual licensed under the MIT (http://www.roydukkey.com/mit) and GPL Version 2 (http://www.roydukkey.com/gpl) licenses.
  *
- * Date: 2012-03-06 (Tue, 6 March 2012)
+ * Date: 2012-03-18 (Tue, 18 March 2012)
  *
  * NOTE: Please report any improvements to guider@roydukkey.com.
  *       There are still many improvements that can me made to this
@@ -86,15 +86,16 @@
 
 		h: "guider=", // Hash Key
 		g: [], // All Instantiated of Guiders
-		c: 0, // Current Guider
-		l: 0, // Last Guider
+		//c: null, // Current Guider
+		//l: null, // Last Guider
+		p: [], // Previous Guider
 
 		o: false, // Omit Hiding Overlay
 		z: $('<div id="jgOverlay" />'), // Overlay HTML
 
 		e: 10, // = arrow's error width and height
 		
-		p: "topLeft,top,topRight,rightTop,right,rightBottom,bottomRight,bottom,bottomLeft,leftBottom,left,leftTop".split(","), // Position Options
+		x: "topLeft,top,topRight,rightTop,right,rightBottom,bottomRight,bottom,bottomLeft,leftBottom,left,leftTop".split(","), // Position Options
 
 		// Get guider by name
 		n: function( name ){
@@ -116,122 +117,11 @@
 		d: function( g ){
 			g.removeClass("jGuiderHidden")
 			$(".jGuiderHighlight").remove();
-		}
-	},
-// A: End
-//--
-//--
-// B: Main Pluging Function
-	p = ($.guider = function(s){
-		
-		var h // Url Hash
-			, i = 0 // for Iterator
-			, b // Buttons
-			, g = $.extend(true, {}, q.s, s) // Extend those settings with s
-
-		// Ensure Correct Values
-		if(g.name == "length") throw "Guider " + p.version + ": Guider names must !== 'length'.";
-		
-		g.position = (g.position = ((function(){
-			for (; i < q.p.length; i++) if(q.p[i].toLowerCase() == g.position.toLowerCase()) return q.p[i];
-		})() || q.s.position)).replace(/(.*)[A-Z].*/, "$1," + g.position).split(",")
-
-		if(g.alignButtons != "left" && g.alignButtons != "center" && g.alignButtons != "right") g.alignButtons = "left";
-
-		// Button Container and Configure g.e
-		b = (g.e = $(q.b))
-			.attr("id", "jGuider_" + (g.name || q.g.length))
-			.addClass(g.className)
-			.css("width", g.width)
-			.find(".jgTitle")
-				.html(g.title)
-				.end()
-			.find(".jgDesc")
-				.html(g.description)
-				.end()
-			// Add Close Button
-			.find(".jgClose")
-				.toggleClass("active", !!g.closable)
-				.click(p.hideAll)
-				.end()
-			.find(".jgButtons").addClass("jgAlign" + g.alignButtons.substr(0, 1).toUpperCase() + g.alignButtons.substr(1));
-
-		g.e.draggable && !!g.draggable && (g.attachTo == undefined || g.attachTo.length == 0) && g.e.draggable({ cancel: ".jgNoDrag" })
-
-		// Add Buttons
-		for( i in g.buttons )
-			b.append(
-				$('<button>' + i + '</button>').addClass(g.buttons[i].className).attr("disabled", !!g.buttons[i].disabled)
-					.click({
-						guider: $.isFunction(g.buttons[i]) ? g.buttons[i] : $.isFunction(g.buttons[i].click) ? g.buttons[i].click : -1
-					},
-						typeof g.buttons[i] == "boolean" || typeof g.buttons[i].click == "boolean" ?
-							i.toLowerCase() == "close" &&
-								p.hideAll
-							|| i.toLowerCase() == "next" &&
-								p.next
-							|| i.toLowerCase() == "back" &&
-								p.prev
-						:
-							function(e){ return ~e.data.guider && e.data.guider.call(g.e, e) }
-					)
-			)
-
-		// Add to list of guiders
-		q.g[ q.l = g.name || q.g.length || 0 ] = g;
-    
-		// If the URL of the current window is of the form http://www.myurl.com/mypage.html#guider=id then show this guider.
-		g.hashable &&
-			~(h = window.location.hash.indexOf(q.h)) &&
-				g.name.toLowerCase() == window.location.hash.substr(h + q.h.length).toLowerCase() &&
-					p.show(g.name);
-
-		return p;
-	})
-// B: End
-//--
-//--
-// C: External Data and Functions
-	$.each({
-		version: "2.0.0",
-
-		next: function(){ var c = q.g[q.c], n
-			
-			if( typeof c == undefined ) return false
-			n = c.next || null
-
-			if( n !== null && n !== "" ){
-				
-				q.o = !!q.n(n).overlay
-				p.hideAll(true);
-
-				c.highlight && q.d(c.attachTo);
-
-				p.show(n);
-			}
-			return true
 		},
-		
-		hideAll: function(){ var g; // Where is Next Guider
+		// Displays guider
+		v: function(n){ var g = q.n(n = n != undefined ? n : q.l), h, w, b, t, l;
 			
-			$(".jGuider").filter(":visible").each(function(i, e){
-				g = q.n($(e).attr("id").replace("jGuider_", ""))
-				g.onHide && g.onHide.call(g)
-			}).end()
-				.remove()
-			
-			g = q.g[q.c]
-			g.highlight && q.d(g.attachTo)
-
-			// Hide Overlay
-			!q.o && q.z.remove()
-			q.o = !q.o
-
-			return p;
-		},
-
-		// n = name
-		show: function(n){var g = q.n(n = n || q.l), h, w, b, t, l;
+			q.c != undefined && p.hideAll()
 			
 			if( g.overlay ){
 				$("#jgOverlay").length === 0 && q.z.appendTo("body");
@@ -389,9 +279,143 @@
 					? Math.max(b.top + (t - h) / 2, 0)
 					: w
 			);
-			
-			q.c = n;
 
+			q.c = n;
+		}
+	},
+// A: End
+//--
+//--
+// B: Main Pluging Function
+	p = ($.guider = function(s){
+		
+		var h // Url Hash
+			, i = 0 // for Iterator
+			, b // Buttons
+			, g = $.extend(true, {}, q.s, s) // Extend those settings with s
+
+		// Ensure Correct Values
+		if(g.name == "length") throw "Guider " + p.version + ": Guider names must !== 'length'.";
+		
+		g.position = (g.position = ((function(){
+			for (; i < q.x.length; i++) if(q.x[i].toLowerCase() == g.position.toLowerCase()) return q.x[i];
+		})() || q.s.position)).replace(/(.*)[A-Z].*/, "$1," + g.position).split(",")
+
+		if(g.alignButtons != "left" && g.alignButtons != "center" && g.alignButtons != "right") g.alignButtons = "left";
+
+		// Button Container and Configure g.e
+		b = (g.e = $(q.b))
+			.attr("id", "jGuider_" + (g.name || q.g.length))
+			.addClass(g.className)
+			.css("width", g.width)
+			.find(".jgTitle")
+				.html(g.title)
+				.end()
+			.find(".jgDesc")
+				.html(g.description)
+				.end()
+			// Add Close Button
+			.find(".jgClose")
+				.toggleClass("active", !!g.closable)
+				.click(p.hideAll)
+				.end()
+			.find(".jgButtons").addClass("jgAlign" + g.alignButtons.substr(0, 1).toUpperCase() + g.alignButtons.substr(1));
+
+		g.e.draggable && !!g.draggable && (g.attachTo == undefined || g.attachTo.length == 0) && g.e.draggable({ cancel: ".jgNoDrag" })
+
+		// Add Buttons
+		for( i in g.buttons )
+			b.append(
+				$('<button>' + i + '</button>').addClass(g.buttons[i].className).attr("disabled", !!g.buttons[i].disabled)
+					.click({
+						guider: $.isFunction(g.buttons[i]) ? g.buttons[i] : $.isFunction(g.buttons[i].click) ? g.buttons[i].click : -1
+					},
+						typeof g.buttons[i] == "boolean" || typeof g.buttons[i].click == "boolean" ?
+							i.toLowerCase() == "close" &&
+								p.hideAll
+							|| i.toLowerCase() == "next" &&
+								p.next
+							|| i.toLowerCase() == "back" &&
+								p.prev
+						:
+							function(e){ return ~e.data.guider && e.data.guider.call(g.e, e) }
+					)
+			)
+
+		// Add to list of guiders
+		q.g[ q.l = g.name || q.g.length || 0 ] = g;
+    
+		// If the URL of the current window is of the form http://www.myurl.com/mypage.html#guider=id then show this guider.
+		g.hashable &&
+			~(h = window.location.hash.indexOf(q.h)) &&
+				g.name.toLowerCase() == window.location.hash.substr(h + q.h.length).toLowerCase() &&
+					p.show(g.name);
+
+		return p;
+	})
+// B: End
+//--
+//--
+// C: External Data and Functions
+	$.each({
+		version: "2.0.1",
+
+		next: function(){ var c = q.g[q.c], n
+			
+			if( typeof c == undefined ) return false
+			n = c.next || null
+
+			if( n !== null && n !== "" ){
+				
+				q.o = !!q.n(n).overlay
+
+				c.highlight && q.d(c.attachTo);
+
+				q.c != undefined && q.p.push(q.c)
+
+				q.v(n);
+			}
+			return p
+		},
+		
+		prev: function(){ var c = q.g[q.c], n
+
+			if( typeof c == undefined || q.p.length == 0 ) return false
+			n = q.p.pop()
+			
+			q.o = !!q.g[n].overlay
+				
+			c.highlight && q.d(c.attachTo)
+				
+			q.v(n)
+			
+			return p
+		},
+		
+		hideAll: function(){ var g; // Where is Next Guider
+			
+			$(".jGuider").filter(":visible").each(function(i, e){
+				g = q.n($(e).attr("id").replace("jGuider_", ""))
+				g.onHide && g.onHide.call(g)
+			}).end()
+				.detach()
+
+			g = q.g[q.c]
+			g.highlight && q.d(g.attachTo)
+
+			// Hide Overlay
+			!q.o && q.z.detach()
+			q.o = !q.o
+
+			return p;
+		},
+
+		// n = name
+		show: function(n){
+			if(q.c != undefined) q.p.push(q.c);
+			
+			q.v(n)
+			
 			return p;
 		}
 

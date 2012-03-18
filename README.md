@@ -1,4 +1,4 @@
-Guider.js (version 2.0.0)
+Guider.js (version 2.0.1)
 ==========================
 
 Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google.
@@ -125,6 +125,7 @@ Besides creating guiders, here is sample code you can use in your application to
 $.guider.show(name); // shows the guider, given the name used at creation
 $.guider.hideAll(); // hides all guiders
 $.guider.next(); // hides the last shown guider, if shown, and advances to the next guider
+$.guider.prev(); // hides the last shown guider, if shown, and advances to the previous guider
 ~~~
 
 You'll likely want to change the default values, such as the width (set to 530px). These can be found at the top of `guider.js`. You'll also want to modify the css file to match your application's branding.
