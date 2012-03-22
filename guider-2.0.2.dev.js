@@ -138,9 +138,6 @@
 			}
 			
 			g.e.appendTo("body")
-  
-			// You can use an onShow function to take some action before the guider is shown.
-			g.onShow && g.onShow(g);
 			
 			h = g.e.innerHeight()
 			w = g.e.innerWidth()
@@ -251,7 +248,13 @@
 			g.e.css({
 				position: g.attachTo ? "absolute" : "fixed",
 				top: t,
-				left: l,
+				left: l
+			})
+  
+			// You can use an onShow function to take some action before the guider is shown.
+			g.onShow && g.onShow(g);
+			
+			g.e.css({
 				display: "block"
 			});
   
