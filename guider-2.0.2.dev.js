@@ -1,11 +1,11 @@
 ﻿/*!
- * jQuery Plugin: Guider v2.0.1
+ * jQuery Plugin: Guider v2.0.2
  * http://www.roydukkey.com/
  *
  * Copyright 2012 roydukkey, Attribution to Optimizely (optimizely.com).
  * Dual licensed under the MIT (http://www.roydukkey.com/mit) and GPL Version 2 (http://www.roydukkey.com/gpl) licenses.
  *
- * Date: 2012-03-18 (Tue, 18 March 2012)
+ * Date: 2012-03-22 (Tue, 22 March 2012)
  *
  * NOTE: Please report any improvements to guider@roydukkey.com.
  *       There are still many improvements that can me made to this
@@ -361,7 +361,7 @@
 //--
 // C: External Data and Functions
 	$.each({
-		version: "2.0.1",
+		version: "2.0.2",
 
 		next: function(){ var c = q.g[q.c], n
 			
@@ -408,7 +408,7 @@
 
 			// Hide Overlay
 			!q.o && q.z.detach()
-			q.o = !q.o
+			q.o = false
 
 			return p;
 		},

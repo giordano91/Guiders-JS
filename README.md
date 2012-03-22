@@ -1,4 +1,4 @@
-Guider.js (version 2.0.1)
+Guider.js (version 2.0.2)
 ==========================
 
 Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google.
@@ -14,7 +14,7 @@ You can also check out `README.htm` for guiders in action!
 Setup
 --------
 
-Here is sample code for initializing a couple of guiders. Guiders are hidden when created, unless `.show()` is method chained immediately after `$.guider`. Also note that `$("#hoawrd").guider` is a guider attachment. Because this call return a jQuery selection, chaining show here will invoke the jQuery show method.
+Here is sample code for initializing a couple of guiders. Guiders are hidden when created, unless `.show()` is method chained immediately after `$.guider`. Also note that `$("#hoawrd").guider` is a guider attachment. Because this call returns a jQuery selection, chaining `.show()` here will invoke the jQuery show method.
 
 ~~~ javascript
 $.guider({
