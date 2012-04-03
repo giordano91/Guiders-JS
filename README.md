@@ -1,4 +1,4 @@
-Guider.js (version 2.0.2)
+Guider.js (version 2.0.3)
 ==========================
 
 Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google.
@@ -131,6 +131,17 @@ $.guider.prev(); // hides the last shown guider, if shown, and advances to the p
 You'll likely want to change the default values, such as the width (set to 530px). These can be found at the top of `guider.js`. You'll also want to modify the css file to match your application's branding.
 
 Lastly, if the URL of the current window is of the form `http://www.myurl.com/mypage.html#guider=foo`, then the guider with name equal to `foo` and the 'hashable' setting enable, will be shown automatically.
+
+
+Future Features
+-------------
+
+* __Option Transformation:__ Provide methods to get and set options on specific guider are its initialisation.
+* __Better Event Handling:__ Will provide more precise events and bindable events.
+* __Auto Focus Default Button:__ This will allow users to set a default button that will be given focus once the guider is shown.
+* __Add Fading on Show and Hide:__ I will give options to set an individual guider to fade in and out.
+* __Scroll into View:__ Add Option to enable/disable scrolling shown guider into view.
+* __Improved Mobile Support:__ Testers welcome. 
 
 
 In Closing
