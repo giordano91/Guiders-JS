@@ -1,5 +1,5 @@
 ﻿/*!
- * jQuery Plugin: Guider v2.0.2
+ * jQuery Plugin: Guider v2.0.3
  * http://www.roydukkey.com/
  *
  * Copyright 2012 roydukkey, Attribution to Optimizely (optimizely.com).
@@ -252,7 +252,7 @@
 			})
   
 			// You can use an onShow function to take some action before the guider is shown.
-			g.onShow && g.onShow(g);
+			g.onShow && g.onShow.call(g.e);
 			
 			g.e.css({
 				display: "block"
@@ -399,7 +399,7 @@
 			
 			$(".jGuider").filter(":visible").each(function(i, e){
 				g = q.n($(e).attr("id").replace("jGuider_", ""))
-				g.onHide && g.onHide.call(g)
+				g.onHide && g.onHide.call(g.e)
 			}).end()
 				.detach()
 
