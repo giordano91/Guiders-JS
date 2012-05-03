@@ -1,12 +1,12 @@
-Guider.js (version 2.0.3)
+Guider.js (version 2.1.0)
 ==========================
 
-Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google.
+Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google and their services.
 
 Demo
 -------
 
-You can also check out `README.htm` for guiders in action!
+You can also check out `README.htm` for Guider in action!
 
 [http://www.roydukkey.com/guider/](http://www.roydukkey.com/guider/)
 
@@ -14,15 +14,15 @@ You can also check out `README.htm` for guiders in action!
 Setup
 --------
 
-Here is sample code for initializing a couple of guiders. Guiders are hidden when created, unless `.show()` is method chained immediately after `$.guider`. Also note that `$("#hoawrd").guider` is a guider attachment. Because this call returns a jQuery selection, chaining `.show()` here will invoke the jQuery show method.
+Here is sample code for initializing a couple of guides. Guides are hidden when created, unless `.show()` is method chained immediately after `$.guider`. Also note that `$("#howard").guider` is a guide attachment. Because this call returns a jQuery selection, chaining `.show()` here will invoke the jQuery show method.
 
 ~~~ javascript
 $.guider({
-  next: "second",
-  title: "Welcome to Guiders.js!",
-  description: "Guider are a user interface design pattern for introducing features of software. This dialog box, for example, is the first in a series of guiders that together make up a guide.",
-  overlay: true,
-  buttons: {
+	next: "second",
+	title: "Welcome to Guiders.js!",
+	description: "Guider are a user interface design pattern for introducing features of software. This dialog box, for example, is the first in a series of guiders that together make up a guide.",
+	overlay: true,
+	buttons: {
 		Next: true
 	}
 }).show();
@@ -31,9 +31,9 @@ $.guider({
 $("#howard").guider({
 	name: "second",
 	next: "third",
-	title: "Guiders are typically attached to an element on the page.",
-	description: "<p>For example, this guider is attached to Howard. The Guider.js API uses a two-key positional model to determine where the guider should be placed.</p>\
-	Attaching a guider to an element focuses the user on the area of interest.",
+	title: "Guides are typically attached to an element on the page.",
+	description: "<p>For example, this guide is attached to Howard. The Guider.js API uses a two-key positional model to determine where the guide should be placed.</p>\
+	Attaching a guide to an element focuses the user on the area of interest.",
 	width: 600,
 	position: "top",
 	alignButtons: "right",
@@ -48,7 +48,7 @@ $("#howard").guider({
 });
 ~~~
 
-The parameters for creating guiders are:
+The parameters for creating guides are:
 
 ~~~
 {
@@ -85,6 +85,7 @@ The parameters for creating guiders are:
 						[className: <string>]?
 						[click: <boolean> | <function>]?
 						[disabled: <boolean>]?
+						[focus: <boolean>]?
 					}
 				]
 			|
@@ -93,6 +94,7 @@ The parameters for creating guiders are:
 						[className: <string>]?
 						[click: <boolean> | <function>]?
 						[disabled: <boolean>]?
+						[focus: <boolean>]?
 					}
 				]
 			]*
@@ -119,13 +121,18 @@ Support
 Integration
 --------------
 
-Besides creating guiders, here is sample code you can use in your application to work with guiders:
+Besides creating guides, here is sample code you can use in your application to work with guides:
 
 ~~~ javascript
-$.guider.show(name); // shows the guider, given the name used at creation
-$.guider.hideAll(); // hides all guiders
-$.guider.next(); // hides the last shown guider, if shown, and advances to the next guider
-$.guider.prev(); // hides the last shown guider, if shown, and advances to the previous guider
+$.guider(settings); // initialise a new guide
+
+$.guider(name, optionName); // Get the value of an option, ie. "draggable", "offset.top"
+$.guider(name, optionName, value); // Set values of single or multiple options, can store custom data
+
+$.guider.show(name); // shows the guide, given the name used at creation
+$.guider.hideAll(); // hides all guides
+$.guider.next(); // hides the last shown guide, if shown, and advances to the next guide
+$.guider.prev(); // hides the last shown guide, if shown, and advances to the previous guide
 ~~~
 
 You'll likely want to change the default values, such as the width (set to 530px). These can be found at the top of `guider.js`. You'll also want to modify the css file to match your application's branding.
@@ -136,11 +143,11 @@ Lastly, if the URL of the current window is of the form `http://www.myurl.com/my
 Future Features
 -------------
 
-* __Option Transformation:__ Provide methods to get and set options on specific guider are its initialisation.
+* ~~__Option Transformation:__ Provide methods to get and set options on specific guide are its initialisation.~~
 * __Better Event Handling:__ Will provide more precise events and bindable events.
-* __Auto Focus Default Button:__ This will allow users to set a default button that will be given focus once the guider is shown.
-* __Add Fading on Show and Hide:__ I will give options to set an individual guider to fade in and out.
-* __Scroll into View:__ Add Option to enable/disable scrolling shown guider into view.
+* ~~__Auto Focus Default Button:__ This will allow users to set a default button that will be given focus once the guide is shown.~~
+* __Add Fading on Show and Hide:__ I will give options to set an individual guide to fade in and out.
+* __Scroll into View:__ Add Option to enable/disable scrolling shown guide into view.
 * __Improved Mobile Support:__ Testers welcome. 
 
 

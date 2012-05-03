@@ -7,7 +7,7 @@
 }
 #jgOverlay.jgDark {
 	background-color: #666;
-  filter: alpha(opacity=50); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; opacity: .5;
+	filter: alpha(opacity=50); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; opacity: .5;
 }
 
 .jGuiderHidden { visibility: hidden; }
@@ -16,9 +16,9 @@
 
 .jGuider .jgContent {
 	-webkit-box-shadow: 0 4px 16px rgba(0, 0, 0, .2); -moz-box-shadow: 0 4px 16px rgba(0, 0, 0, .2); box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
-  outline: 0; -webkit-outline: 0;
+	outline: 0; -webkit-outline: 0;
 	border: 1px solid #acacac; border: 1px solid rgba(0, 0, 0, .333);
-  padding: 35px 40px;
+	padding: 35px 40px;
 	background: #fff;
 	background-clip: padding-box;
 }
@@ -35,17 +35,17 @@
 .jGuider .jgClose.active { display: block; }
 
 .jGuider .jgTitle {
-  color: #000;
-  cursor: default;
-  font: normal 20px arial,sans-serif;
-  padding: 0 0 10px;
-  position: relative;
-  word-wrap: break-word;
+	color: #000;
+	cursor: default;
+	font: normal 20px arial, sans-serif;
+	padding: 0 0 10px;
+	position: relative;
+	word-wrap: break-word;
 }
 
 .jGuider .jgDesc {
-  font: normal 13px arial,sans-serif;
-  line-height: 1.4em
+	font: normal 13px arial,sans-serif;
+	line-height: 1.4em
 }
 .jGuider .jgDesc p { margin: 1em 0; }
 .jGuider .jgDesc a { color: #36c; text-decoration: none; }
@@ -55,7 +55,8 @@
 .jGuider .jgAlignRight { text-align: right; }
 
 .jGuider button {
-	height: 29px; min-width: 72px;
+	height: 29px;
+	min-width: 72px; *min-width: auto;
 	margin: 25px 16px 0 0;
 	border: 1px solid #dcdcdc; border: 1px solid rgba(0, 0, 0, 0.1);
 	-webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;
@@ -71,30 +72,30 @@
 	font: bold 12px/27px arial, sans-serif;
 	cursor: default;
 }
-.jGuider .centerAlign button { margin: 25px 8px 0; }
-.jGuider .rightAlign button { margin: 25px 0 0 16px; }
+.jGuider .jgAlignCenter button { margin: 25px 8px 0; }
+.jGuider .jgAlignRight button { margin: 25px 0 0 16px; }
 .jGuider button::-moz-focus-inner { border: none 0; }
 .jGuider button:hover, .jGuider button:active {
 	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .1); -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .1); box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
-  border: 1px solid #c6c6c6;
-  color: #333;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
-  background-image: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
-  background-image: -ms-linear-gradient(top, #f8f8f8, #f1f1f1);
-  background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
-  background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+	border: 1px solid #c6c6c6;
+	color: #333;
+	background-color: #f8f8f8;
+	background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+	background-image: -moz-linear-gradient(top, #f8f8f8, #f1f1f1);
+	background-image: -ms-linear-gradient(top, #f8f8f8, #f1f1f1);
+	background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+	background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
 }
 .jGuider button:active {
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
 }
 .jGuider button:focus { border: 1px solid #4d90fe; }
 .jGuider button[disabled] {
-  -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
-  border: 1px solid #f3f3f3; border: 1px solid rgba(0, 0, 0, .05);
-  color: #b8b8b8;
-  background: #fff;
-  background-image: none;
+	-webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none;
+	border: 1px solid #f3f3f3; border: 1px solid rgba(0, 0, 0, .05);
+	color: #b8b8b8;
+	background: #fff;
+	background-image: none;
 }
 
 .jGuider .primary {

@@ -1,185 +1,188 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-		<!-- The required Guider CSS -->
-    <link rel="stylesheet" href="guider-2.0.3.min.css" type="text/css" />
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Guider-JS Demos</title>
+	
+	<!-- The required Guider CSS -->
+    <link rel="stylesheet" href="guider-2.1.0.min.css" type="text/css" />
+    
     <style type="text/css">
     	/*-- This CSS is just for the Demo. --*/
-      #howard, #raj { position: absolute; top: 350px; left: 250px; border: 2px solid #333; }
-      #raj { left: 650px }
-      
-			.posTL, .posT, .posTR, .posRT, .posR, .posRB, .posBR, .posB, .posBL, .posLB, .posL, .posLT {
-				position: absolute; line-height: 20px; padding: 2px 5px; background: #fff; background: rgba(255,255,255,.5);
-				-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 10px;
-			}
-			.posTL, .posT, .posTR, .posRT, .posLT { top: 5px; }
-			.posTR, .posRT, .posR, .posRB, .posBR { right: 5px; }
-			.posRB, .posBR, .posB, .posBL, .posLB { bottom: 5px; }
-			.posTL, .posBL, .posLB, .posL, .posLT { left: 5px; }
-			.posT, .posB { left: 50%; margin-left: -30px; width: 50px; text-align: center; }
-			.posR, .posL { top: 50%; margin-top: -10px; }
-			.posTR, .posBR { margin-right: 40px; }
-			.posLT, .posRT { margin-top: 35px; }
-			.posLB, .posRB { margin-bottom: 35px; }
-			.posTL, .posBL { margin-left: 40px; }
+		#howard, #raj { position: absolute; top: 350px; left: 250px; border: 2px solid #333; }
+		#raj { left: 650px }
+		#howard img, #raj img { display: block; }
+
+		.posTL, .posT, .posTR, .posRT, .posR, .posRB, .posBR, .posB, .posBL, .posLB, .posL, .posLT {
+			position: absolute; line-height: 20px; padding: 2px 5px; background: #fff; background: rgba(255,255,255,.5);
+			-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 10px;
+		}
+		.posTL, .posT, .posTR, .posRT, .posLT { top: 5px; }
+		.posTR, .posRT, .posR, .posRB, .posBR { right: 5px; }
+		.posRB, .posBR, .posB, .posBL, .posLB { bottom: 5px; }
+		.posTL, .posBL, .posLB, .posL, .posLT { left: 5px; }
+		.posT, .posB { left: 50%; margin-left: -30px; width: 50px; text-align: center; }
+		.posR, .posL { top: 50%; margin-top: -10px; }
+		.posTR, .posBR { margin-right: 40px; }
+		.posLT, .posRT { margin-top: 35px; }
+		.posLB, .posRB { margin-bottom: 35px; }
+		.posTL, .posBL { margin-left: 40px; }
     </style>
+</head>
+<body>
+
+	<span id="howard">
+		<span class="posTL">topLeft</span>
+		<span class="posT">top</span>
+		<span class="posTR">topRight</span>
+		<span class="posRT">rightTop</span>
+		<span class="posR">right</span>
+		<span class="posRB">rightBottom</span>
+		<span class="posBR">bottomRight</span>
+		<span class="posB">bottom</span>
+		<span class="posBL">bottomLeft</span>
+		<span class="posLB">leftBottom</span>
+		<span class="posL">left</span>
+		<span class="posLT">leftTop</span>
+		<img src="http://l33t.roydukkey.com/images/howard.jpg" />
+    </span>
+	<span id="raj">
+		<span class="posTL">topLeft</span>
+		<span class="posT">top</span>
+		<span class="posTR">topRight</span>
+		<span class="posRT">rightTop</span>
+		<span class="posR">right</span>
+		<span class="posRB">rightBottom</span>
+		<span class="posBR">bottomRight</span>
+		<span class="posB">bottom</span>
+		<span class="posBL">bottomLeft</span>
+		<span class="posLB">leftBottom</span>
+		<span class="posL">left</span>
+		<span class="posLT">leftTop</span>
+		<img src="http://l33t.roydukkey.com/images/raj.jpg" />
+	</span>
     
-    <!-- guider.js requires jQuery as a prerequisite. If you want guiders to be draggable, you'll also need jQuery UI Draggable. Be sure to load guider.js AFTER jQuery. -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="guider-2.0.3.min.js"></script>
+    <!-- guider.js requires jQuery as a prerequisite. If you want guides to be draggable, you'll also need jQuery UI Draggable. Be sure to load guider.js AFTER jQuery. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script src="guider-2.1.0.min.js"></script>
 
-		<script type="text/javascript">
-		/*--
-			Here is the default set of options:
+	<script>
+	/*--
+		Here is the default set of options:
 
-			$.guider({
-				title: "This is a very generic title.",
-				description: "Did you forget a description?",
-				width: 530,
-				overlay: false,
-				position: "rightTop",
-				arrowSize: 30,
-				closable: false,
-				draggable: true,
-				highlight: false,
-				hashable: false,
-				alignButtons: "left"
-			})
+		$.guider({
+			title: "This is a very generic title.",
+			description: "Did you forget a description?",
+			width: 530,
+			overlay: false,
+			position: "rightTop",
+			alignButtons: "left",
+			hashable: false,
+			closable: false,
+			draggable: true,
+			highlight: false,
+			arrowSize: 30
+		})
 
-		--*/
-			$(function(){
-				
-				$.guider({
-					next: "second",
-					title: "Welcome to Guider.js!",
-					description: "Guiders are a user interface design pattern for introducing features of software. This dialog box, for example, is the first in a series of guiders that together make up a guide.",
-					overlay: "dark",
-					buttons: {
-						Next: {
-							click: true,
-							className: "primary"
-						}
-					}
-				}).show()
+	--*/
+
+		$.guider({
+			next: "second",
+			title: "Welcome to Guider.js!",
+			description: "Guides are a user interface design pattern for introducing features of software. This dialog box, for example, is the first in a series of guides that together make up a walk through.",
+			overlay: "dark",
+			buttons: {
+				Next: {
+					click: true,
+					className: "primary",
+					focus: true
+				}
+			}
+		}).show()
     
-				$("#howard").guider({
-					name: "second",
-					next: "third",
-					title: "Guiders are typically attached to an element on the page.",
-					description: "<p>For example, this guider is attached to Howard. The Guider.js API uses a two-key positional model to determine where the guider should be placed.</p>\
-					Attaching a guider to an element focuses the user on the area of interest.",
-					width: 600,
-					position: "top",
-					alignButtons: "right",
-					closable: true,
-					buttons: {
-						Close: true,
-						Next: {
-							click: true,
-							className: "primary"
-						}
-					}
-				})
-
-				$("#raj").guider({
-					name: "third",
-					next: "fourth",
-					title: "You can advance a guide from custom event handlers.",
-					description: "<p>Custom event handlers can be used to hide and show guiders. This allows you to interactively show the user how to use your software by having them complete steps.</p>",
-					width: 580,
-					closable: true,
-					buttons: {
-						"Give it a shot, click Howard": {
-							click: function(){
-								$("#howard").one("click", $.guider.next)
-								$.guider.hideAll()
-							},
-							className: "primary"
-						}
-					}
-				})
-
-				$("#howard").guider({
-					name: "fourth",
-					next: "fifth",
-					title: "Guiders can be customized.",
-					description: 'Other aspects of the guider can be customized as well, such as the button names, button click handlers, dialog widths, arrow size, and hightlighting of the attached element. You may also want to modify the CSS to your own project\'s style.',
-					width: 600,
-					arrowSize: 50,
-					position: "bottomLeft",
-					overlay: true,
-					highlight: true,
-					closable: true,
-					buttons: {
-						Continue: {
-							click: $.guider.next,
-							className: "primary"
-						}
-					}
-				});
-
-				$.guider({
-					name: "fifth",
-					title: "How else can I use guiders?",
-					description: '<p>Guiders can also be used to introduce of brand new features to existing users. Here is an example of a guider in Gmail. Google\'s CSS calls this a promo, likely short for promotional box.</p>\
-					<img src="http://l33t.roydukkey.com/images/promo_gmail.png" style="border: 1px solid #333;" />',
-					next: "finally",
-					width: 634,
-					overlay: true,
-					closable: true,
-					buttons: {
-						Next: true
-					}
-				})
-
-				$.guider({
-					name: "finally",
-					title: "Now that's pretty simple.",
-					description: 'To get started, have a look at this HTML file, then emulate it for use in your own project.',
-					width: 500,
-					overlay: true,
-					closable: true,
-					buttons: {
-						Close: true
-					}
-				});
+		$("#howard").guider({
+			name: "second",
+			next: "third",
+			title: "Guides are typically attached to an element on the page.",
+			description: "<p>For example, this guide is attached to Howard. The Guider.js API uses a two-key positional model to determine where the guide should be placed.</p>\
+			Attaching a guide to an element focuses the user on the area of interest.",
+			width: 600,
+			position: "top",
+			alignButtons: "right",
+			closable: true,
+			buttons: {
+				Close: true,
+				Next: {
+					click: true,
+					className: "primary"
+				}
+			}
+		}).guider({
+			name: "fourth",
+			next: "fifth",
+			title: "Guider can be customized.",
+			description: 'Other aspects of the guide can be customized as well, such as the button names, button click handlers, dialog widths, arrow size, and highlighting of the attached element. You may also want to modify the CSS to your own project\'s style.',
+			width: 600,
+			arrowSize: 50,
+			position: "bottomLeft",
+			overlay: true,
+			highlight: true,
+			closable: true,
+			buttons: {
+				Continue: {
+					click: $.guider.next,
+					className: "primary"
+				}
+			}
+		});
 			
-			})
-		</script>
-  </head>
-  <body>
+		// Set guide property after init
+		$.guider("second", "buttons.Next.focus", true)
 
-    <span id="howard">
-			<span class="posTL">topLeft</span>
-			<span class="posT">top</span>
-			<span class="posTR">topRight</span>
-			<span class="posRT">rightTop</span>
-			<span class="posR">right</span>
-			<span class="posRB">rightBottom</span>
-			<span class="posBR">bottomRight</span>
-			<span class="posB">bottom</span>
-			<span class="posBL">bottomLeft</span>
-			<span class="posLB">leftBottom</span>
-			<span class="posL">left</span>
-			<span class="posLT">leftTop</span>
-      <img src="http://l33t.roydukkey.com/images/howard.jpg" />
-    </span>
-		<span id="raj">
-			<span class="posTL">topLeft</span>
-			<span class="posT">top</span>
-			<span class="posTR">topRight</span>
-			<span class="posRT">rightTop</span>
-			<span class="posR">right</span>
-			<span class="posRB">rightBottom</span>
-			<span class="posBR">bottomRight</span>
-			<span class="posB">bottom</span>
-			<span class="posBL">bottomLeft</span>
-			<span class="posLB">leftBottom</span>
-			<span class="posL">left</span>
-			<span class="posLT">leftTop</span>
-      <img src="http://l33t.roydukkey.com/images/raj.jpg" />
-    </span>
+		$("#raj").guider({
+			name: "third",
+			next: "fourth",
+			title: "You can advance a guide from custom event handlers.",
+			description: "<p>Custom event handlers can be used to hide and show guides. This allows you to interactively show the user how to use your software by having them complete steps.</p>",
+			width: 580,
+			closable: true,
+			buttons: {
+				"Give it a shot, click Howard": {
+					click: function(){
+						$("#howard").one("click", $.guider.next)
+						$.guider.hideAll()
+					},
+					className: "primary"
+				}
+			}
+		})
 
-  </body>
+		$.guider({
+			name: "fifth",
+			title: "How else can I use guiders?",
+			description: '<p>Guiders can also be used to introduce of brand new features to existing users. Here is an example of a guide in Gmail. Google\'s CSS calls this a promo, likely short for promotional box.</p>\
+				<img src="http://l33t.roydukkey.com/images/promo_gmail.png" style="border: 1px solid #333;" />',
+			next: "finally",
+			width: 634,
+			overlay: true,
+			closable: true,
+			buttons: {
+				Next: true
+			}
+		})
+
+		$.guider({
+			name: "finally",
+			title: "Now that's pretty simple.",
+			description: 'To get started, have a look at this HTML file, then emulate it for use in your own project.',
+			width: 500,
+			overlay: true,
+			closable: true,
+			buttons: {
+				Close: true
+			}
+		});
+	</script>
+</body>
 </html>
