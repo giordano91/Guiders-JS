@@ -127,7 +127,8 @@ Besides creating guides, here is sample code you can use in your application to 
 $.guider(settings); // initialise a new guide
 
 $.guider(name, optionName); // Get the value of an option, ie. "draggable", "offset.top"
-$.guider(name, optionName, value); // Set values of single or multiple options, can store custom data
+$.guider(name, optionName, value); // Set value of single options, can store custom data
+$.guider(name, optionMap); // Set values of multiple options, ie. $.guider("second", { draggable: false })
 
 $.guider.show(name); // shows the guide, given the name used at creation
 $.guider.hideAll(); // hides all guides
