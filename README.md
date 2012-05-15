@@ -149,7 +149,8 @@ Future Features
 * ~~__Auto Focus Default Button:__ This will allow users to set a default button that will be given focus once the guide is shown.~~
 * __Add Fading on Show and Hide:__ I will give options to set an individual guide to fade in and out.
 * __Scroll into View:__ Add Option to enable/disable scrolling shown guide into view.
-* __Improved Mobile Support:__ Testers welcome. 
+* __Improved Highlighting:__ Will clone elements with computed styles, so selection won't break.
+* __Improved Mobile Support:__ Testers welcome.
 
 
 In Closing
