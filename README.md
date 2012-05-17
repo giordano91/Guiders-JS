@@ -1,7 +1,7 @@
 Guider.js (version 2.1.0)
 ==========================
 
-Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google and their services.
+Guider is a user experience design pattern for introducing users to a web application. Guider was built to model the way guides have been implemented at Google and their services. View [previous versions](https://github.com/roydukkey/Guiders-JS/downloads).
 
 Demo
 -------
