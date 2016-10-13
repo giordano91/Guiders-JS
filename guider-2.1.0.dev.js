@@ -738,6 +738,17 @@
 			_display();
 
 			return _plugin
+		},
+		
+		getAvailableGuiders: function(className){
+			var elements_list = [];
+			var elements = document.getElementsByClassName(className);
+			for(var i=0; i<elements.length; i++) {
+				if(elements[i].id){
+					elements_list.push(elements[i].id);
+				}
+			}
+			return(elements_list);
 		}
 
 	}, function(k, v){ _plugin[k] = v });
